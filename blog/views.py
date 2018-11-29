@@ -8,7 +8,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+# comment from the github
 # ! mixins like decortor for class
 # these are used to gaurd the page from unauthorized access.
 #  we have done this kind of thing using
