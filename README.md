@@ -1,2 +1,2 @@
-# hello-world
-just another repository
+# DJango Project
+This is a small demo project in python using Django.
