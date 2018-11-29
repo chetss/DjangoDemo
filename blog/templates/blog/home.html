@@ -1,0 +1,29 @@
+<!-- ? code from base.html will be added here -->
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for post in posts %}
+<div class="card text-left">
+  <div class="card-header">
+    <img class='rounded-circle ' style="width: 50px" src="{{post.author.profile.image.url}}" alt="">
+    <strong> {{post.author}} </strong>
+    <small>{{post.data_posted | date:"F d, Y"}}</small>
+  </div>
+  <div class="card-body">
+    <a href="{% url 'post-detail' post.id %}">
+      <h4 class="card-text">{{post.title}}</h4>
+    </a>
+    <p class="card-text">{{post.content}}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% if is_paginated %}
+  
+  {% if page_obj.has_previous %}
+      <a  class="btn btn-outline-info mb-4" href="?page=1" role="button">First</a>
+      <a  class="btn btn-outline-info mb-4" href="?page={{page_obj.previous_page_number}}" role="button">Previous</a>
+  {% endif %}
+    
+{% endif %}
+
+{% endblock content%}
