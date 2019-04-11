@@ -1,1 +1,54 @@
-asdfasdfa
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chinese Traslation0</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        function callme() {
+            text_value = $('#ctext').val()
+            $.ajax({
+                url: 'http://10.208.37.37:4567/translate',
+                contentType: "application/json;",
+                dataType: "json",
+                data: JSON.stringify({"text": text_value}),
+                type: 'POST',
+                success: function (data, textStatus, xhr) {
+                    $("#text").append('hello')
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('error')
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search this blog" id='ctext'>
+            <div class="input-group-append">
+                <button class="btn btn-outline-success" type="button" onclick="callme()">Search</button>
+            </div>
+        </div>
+        <div id='text'></div>
+    </div>
+</body>
+
+</html>asdfasdfa
